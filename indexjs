@@ -1,0 +1,24 @@
+const box = document.getElementsByClassName("box")[0]//大盒子
+const starbox = document.getElementsByClassName("starbox")[0]//大盒子
+const smstar = document.getElementsByClassName("smstar")[0]//小盒子
+// 获取页面宽度
+const wid = window.innerWidth
+const hei = window.innerWidth
+// starbox.style.left = Math.random()*wid+"px"
+const data = ["starbox","starboxx","starboxxx"]
+const datas = ["3000","1000","2000"]
+setInterval(()=>{
+    const boxinter = document.createElement("div")
+    const boxsm = document.createElement("div")
+    const num =parseInt(Math.random()*3)
+    boxinter.className = data[num]
+    boxsm.className = "smstar"
+    boxinter.appendChild(boxsm)
+    box.appendChild(boxinter)
+
+    boxinter.style.left = Math.random()*wid+"px"
+    // boxinter.style.top = Math.random()*hei/3+"px"
+    setTimeout(()=>{
+        boxinter.parentElement.removeChild(boxinter)
+    },datas[num])
+},100)
